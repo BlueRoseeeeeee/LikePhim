@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Header = () => {
+const Header = ({search}) => {
   return (
     <div className="p-4 bg-black flex items-center justify-between">
     <div className="flex items-center space-x-4">
@@ -18,7 +18,7 @@ const Header = () => {
     </div>
       <div className='flex items-center space-x-4'>
         <input type='text' placeholder='Search' className='p-2 text-black '/>
-        <button className='p-2 text-white bg-red-500'>Search</button>
+        <button className='p-2 text-white bg-red-500' onClick={()=>search()}>Search</button>
 
       </div>
     </div>

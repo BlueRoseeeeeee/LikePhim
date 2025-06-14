@@ -2,12 +2,37 @@ import { useState,useEffect } from 'react';
 import Banner from './components/Banner';
 import Header from './components/Header';
 import ListMovie from './components/ListMovie';
+import SearchMovie from './components/SearchMovie';
 
 
 function App() {
   const [movie, setMovie]=useState([]);
   const [movieTopRate, setMovieTopRate]= useState([]);
   const [upCommingMovie, setUpcommingMovie]= useState([]);
+  const [movieSearch, setMovieSearch]= useState([]);
+
+  const handleSearch= async (vlSearch)=>{
+    setMovieSearch([])
+    try {
+    const url = `https://api.themoviedb.org/3/search/movie?query=${vlSearch}&include_adult=false&language=vi&page=1`;
+    const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: `Bearer ${import.meta.env.VITE_MOVIE_API_KEY}`
+        }
+      };
+      const searchByTitile= await fetch(url,options);
+      const data= await searchByTitile.json();
+      // console.log(data);
+      setMovieSearch(data.results);
+      
+    } catch (error) {
+      console.log(error);
+      
+    }
+
+  }
   useEffect(() => {
   const fetchMovie = async () => {
       const options = {
@@ -48,10 +73,16 @@ function App() {
       <div className='bg-black pb-10'>
       <Header/>
       <Banner/>
-      <ListMovie title={'Phổ biến'} data={movie}/>
+      {movieSearch.length>0?<SearchMovie title={'Kết quả tìm kiếm'} data={movieSearch}/>:(
+      <> 
+      {/* Không cho dùng 3 thẻ đồng cấp nên là dùng thẻ đóng rỗng <></>của React */}
+      <ListMovie title={'Phổ biến'} data={movie} search={handleSearch}/> 
       <ListMovie title={'Được đánh giá cao'} data={movieTopRate}/>
       <ListMovie title={'Sắp ra mắt'} data={upCommingMovie}/>
-        
+      </>
+      )}
+      
+    
       </div>
       
     </>

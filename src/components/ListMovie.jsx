@@ -44,13 +44,13 @@ function ListMovie({title,data}) { //title là props
         setTrailerKey('')
     try {
         const url = `https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`;
-    const options = {
-    method: 'GET',
-    headers: {
-        accept: 'application/json',
-        Authorization: `Bearer ${import.meta.env.VITE_MOVIE_API_KEY}`
-    }
-    };
+        const options = {
+        method: 'GET',
+        headers: {
+            accept: 'application/json',
+            Authorization: `Bearer ${import.meta.env.VITE_MOVIE_API_KEY}`
+        }
+        };
     const respone= await fetch(url,options);
     const data= await respone.json();
     console.log('trailer:',data);
