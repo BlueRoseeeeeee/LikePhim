@@ -11,7 +11,7 @@ const Header = ({search}) => {
         <h1 className='text-[35px] font-bold text-blue-500'>PHIM</h1>
       </div>
         <nav className='flex items-center space-x-4'>
-        <a href='' className='text-white'>Home</a>
+        <a href='https://thichxemphim.vercel.app/' className='text-white'>Home</a>
         <a href='' className='text-white'>About</a>
         <a href='' className='text-white'>Contact</a>
 
