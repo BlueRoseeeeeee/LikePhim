@@ -71,12 +71,12 @@ function App() {
   return (
     <>
       <div className='bg-black pb-10'>
-      <Header/>
+      <Header search={handleSearch}/>
       <Banner/>
       {movieSearch.length>0?<SearchMovie title={'Kết quả tìm kiếm'} data={movieSearch}/>:(
       <> 
       {/* Không cho dùng 3 thẻ đồng cấp nên là dùng thẻ đóng rỗng <></>của React */}
-      <ListMovie title={'Phổ biến'} data={movie} search={handleSearch}/> 
+      <ListMovie title={'Phổ biến'} data={movie}/> 
       <ListMovie title={'Được đánh giá cao'} data={movieTopRate}/>
       <ListMovie title={'Sắp ra mắt'} data={upCommingMovie}/>
       </>

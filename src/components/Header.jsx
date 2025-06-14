@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react';
 
 const Header = ({search}) => {
    const  [textInput, setTextInput]= useState('');
@@ -19,7 +20,7 @@ const Header = ({search}) => {
     </div>
       <div className='flex items-center space-x-4'>
         <input type='text' placeholder='Search' className='p-2 text-black ' onChange={(e)=>setTextInput(e.target.value)} value={textInput}/>
-        <button className='p-2 text-white bg-red-500' onClick={()=>search()}>Search</button>
+        <button className='p-2 text-white bg-red-500' onClick={()=>search(textInput)}>Search</button>
 
       </div>
     </div>
