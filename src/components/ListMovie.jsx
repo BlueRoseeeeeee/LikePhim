@@ -24,16 +24,6 @@ const responsive = {
     items: 1
   }
 };
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-  },
-};
 
 const opts = {
       height: '390',
@@ -64,7 +54,7 @@ function ListMovie({title,data}) { //title là props
     const respone= await fetch(url,options);
     const data= await respone.json();
     console.log('trailer:',data);
-    setTrailerKey(data.id);
+    setTrailerKey(data.results[0].key);
     setModalIsOpen(true);
   
     } catch (error) {
@@ -73,8 +63,8 @@ function ListMovie({title,data}) { //title là props
     }
 };
   return (
-    <div className='text-white p-10 mb-5'>
-    <h2 className='upperCase text-md font-bold'>{title}</h2>
+    <div className='text-[#f1efef] p-10 mb-5'>
+    <h2 className='uppercase text-xl font-bold '>{title}</h2>
     {/*  danh sách card */}
     <Carousel responsive={responsive} className='flex items-center mt-6' >
     {data.length>0 && data.map((item)=>(
@@ -103,10 +93,23 @@ function ListMovie({title,data}) { //title là props
     <Modal
         isOpen={modalIsOpen}
         onRequestClose={()=>setModalIsOpen(false)}
-        style={customStyles}
+        style={{
+            overlay:{
+                position:'fixed',
+                zIndex:1000000
+            },
+            content:{
+                top:"50%",
+                left:"50%",
+                right:"auto",
+                bottom:"auto",
+                marginRight:"-50%",
+                transform: "translate(-50%,-50%)"
+            }
+        }}
         contentLabel="Example Modal"
       >
-    <YouTube videoId="{trailerKey}" opts={opts}  />;
+    <YouTube videoId={trailerKey} opts={opts}  />
       </Modal>
 
     </div>
