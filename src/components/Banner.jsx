@@ -13,7 +13,7 @@ const Banner = () => {
         <div className='flex flex-col space-y-5 items-baseline w-[50%]'>
             <p className='text-white bg-gradient-to-r from-red-600 to-red-300 py-1 px-3  text-md'>Cartoon</p>
             <div className='flex flex-col space-y-4'>
-            <h2 className='text-white text-3xl'>Nobita và Câu Chuyện Về Thế Giới Tranh Ảnh</h2>
+            <h2 className='text-white text-4xl'>Nobita và Câu Chuyện Về Thế Giới Tranh Ảnh</h2>
             <div className='flex items-center space-x-3'>
             <img src={IconRate} alt='rating' className='w-8 h-8'/>
             <img src={IconRate} alt='rating' className='w-8 h-8'/>
@@ -34,7 +34,7 @@ const Banner = () => {
             </div>
         </div>
         {/* Nội dung bên phải */}
-        <div className='w-[50%]'>
+        <div className='w-[50%] flex items-center justify-center'>
             <div className='w-[90%] h-[550px] relative group cursor-pointer'>
                 <img src={HomeMovie} alt='Banner film Nobita và Câu Chuyện Về Thế Giới Tranh Ảnh'
                     className='w-full h-full object-fit'
