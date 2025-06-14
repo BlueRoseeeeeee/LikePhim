@@ -24,7 +24,7 @@ function App() {
       };
       const searchByTitile= await fetch(url,options);
       const data= await searchByTitile.json();
-      // console.log(data);
+       console.log('Danh sách phim được tìm thấy',data);
       setMovieSearch(data.results);
       
     } catch (error) {
