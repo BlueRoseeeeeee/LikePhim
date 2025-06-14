@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Header = ({search}) => {
+   const  [textInput, setTextInput]= useState('');
   return (
     <div className="p-4 bg-black flex items-center justify-between">
     <div className="flex items-center space-x-4">
@@ -17,7 +18,7 @@ const Header = ({search}) => {
 
     </div>
       <div className='flex items-center space-x-4'>
-        <input type='text' placeholder='Search' className='p-2 text-black '/>
+        <input type='text' placeholder='Search' className='p-2 text-black ' onChange={(e)=>setTextInput(e.target.value)} value={textInput}/>
         <button className='p-2 text-white bg-red-500' onClick={()=>search()}>Search</button>
 
       </div>
