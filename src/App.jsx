@@ -3,6 +3,7 @@ import Banner from './components/Banner';
 import Header from './components/Header';
 import ListMovie from './components/ListMovie';
 
+
 function App() {
   const [movie, setMovie]=useState([]);
   const [movieTopRate, setMovieTopRate]= useState([]);
@@ -47,9 +48,9 @@ function App() {
       <div className='bg-black pb-10'>
       <Header/>
       <Banner/>
-      <ListMovie title={'Phổ biến'} data={movie.slice(0,5)}/>
-      <ListMovie title={'Được đánh giá cao'} data={movieTopRate.slice(0,5)}/>
-      <ListMovie title={'Sắp ra mắt'} data={upCommingMovie.slice(0,5)}/>
+      <ListMovie title={'Phổ biến'} data={movie}/>
+      <ListMovie title={'Được đánh giá cao'} data={movieTopRate}/>
+      <ListMovie title={'Sắp ra mắt'} data={upCommingMovie}/>
         
       </div>
       
