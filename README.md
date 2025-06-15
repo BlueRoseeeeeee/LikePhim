@@ -12,11 +12,13 @@
 - Click vào để xem phim 
 ![alt text](image-3.png)
 
-****SmartPhone****
+- ****SmartPhone****
 ![alt text](image-4.png)
+
 ![alt text](image-5.png)
 
-****Tablet****
+- ****Tablet****
 ![alt text](image-6.png)
+
 ![alt text](image-7.png)
 
