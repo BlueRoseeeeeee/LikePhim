@@ -12,14 +12,14 @@
 - Click vào để xem phim 
 ![alt text](public/image-3.png)
 <br>
-- <strong>SmartPhone</strong>
-  <br>
-![alt text](public/image-4.png)
-  <br>
-![alt text](public/image-5.png)
-<br>
-<strong>Tablet</strong>
-![alt text](public/image-6.png)
-<br>
-![alt text](public/image-7.png)
+<div>
+  <h3>SmartPhone</h3>
+  <img src="public/image-4.png" alt="Smartphone Image 1">
+  <img src="public/image-5.png" alt="Smartphone Image 2">
+</div>
 
+<div>
+  <h3>Tablet</h3>
+  <img src="public/image-6.png" alt="Tablet Image 1">
+  <img src="public/image-7.png" alt="Tablet Image 2">
+</div>
