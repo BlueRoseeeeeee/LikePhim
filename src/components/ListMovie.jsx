@@ -5,34 +5,33 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Modal from 'react-modal';
 import YouTube from 'react-youtube';
+
 const responsive = {
   superLargeDesktop: {
-    // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
-    items: 5
+    items: 6
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 3
+    items: 4
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 2
+    items: 3
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1
+    items: 2
   }
 };
 
 const opts = {
-      height: '390',
-      width: '640',
-      playerVars: {
-        // https://developers.google.com/youtube/player_parameters
-        autoplay: 1,
-      },
-    };
+  height: '390',
+  width: '100%',
+  playerVars: {
+    autoplay: 1,
+  },
+};
 
 
 
@@ -63,51 +62,60 @@ function ListMovie({title,data}) { //title là props
     }
 };
   return (
-    <div className='text-[#f1efef] p-10 mb-5'>
-    <h2 className='uppercase text-xl font-bold '>{title}</h2>
-    {/*  danh sách card */}
-    <Carousel responsive={responsive} className='flex items-center mt-6' >
-    {data.length>0 && data.map((item)=>(
-        <div key={item.id} 
-        className='w-[200px] h-[300] relative group' onClick={()=>getTrailer(item.id)}>
-        <div className='group-hover:scale-110 transition-transform duration-500 ease-in-out w-full h-full cursor-pointer'> 
-            <div className='absolute top-0 left-0 w-full h-full bg-black/40 '/>
-            <img src={`${import.meta.env.VITE_IMG_URL}${item.poster_path}`}
-             className='w-full h-full object-cover '
-             alt='{item.title}'
-             />
-             
-        </div>
-        <div className='mt-10'>
-                <p className='upperCase text-md text-center mt-2 text-white'>
-                    {item.title||item.original_title}
-                </p>
-        </div>
-         
-        </div>
-        
-    
-
-    ))}
-    </Carousel>
-    <Modal
+    <div className='text-[#f1efef] p-4 md:p-10 mb-5'>
+      <h2 className='uppercase text-lg md:text-xl font-bold mb-4 md:mb-6'>{title}</h2>
+      <Carousel 
+        responsive={responsive} 
+        className='flex items-center'
+        itemClass="px-2"
+        containerClass="py-4"
+      >
+        {data.length > 0 && data.map((item) => (
+          <div 
+            key={item.id} 
+            className='relative group cursor-pointer'
+            onClick={() => getTrailer(item.id)}
+          >
+            <div className='group-hover:scale-105 transition-transform duration-500 ease-in-out'> 
+              <div className='absolute top-0 left-0 w-full h-full bg-black/40'/>
+              <img 
+                src={`${import.meta.env.VITE_IMG_URL}${item.poster_path}`}
+                className='w-full h-auto aspect-[2/3] object-cover rounded-lg'
+                alt={item.title}
+              />
+            </div>
+            <div className='mt-2 md:mt-4'>
+              <p className='text-sm md:text-base text-center text-white line-clamp-2'>
+                {item.title || item.original_title}
+              </p>
+            </div>
+          </div>
+        ))}
+      </Carousel>
+      <Modal
         isOpen={modalIsOpen}
         onRequestClose={()=>setModalIsOpen(false)}
         style={{
-            overlay:{
-                position:'fixed',
-                zIndex:1000000
-            },
-            content:{
-                top:"50%",
-                left:"50%",
-                right:"auto",
-                bottom:"auto",
-                marginRight:"-50%",
-                transform: "translate(-50%,-50%)"
-            }
+          overlay: {
+            position: 'fixed',
+            zIndex: 1000000,
+            backgroundColor: 'rgba(0, 0, 0, 0.75)'
+          },
+          content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+            width: '90%',
+            maxWidth: '800px',
+            padding: '0',
+            border: 'none',
+            background: 'transparent'
+          }
         }}
-        contentLabel="Example Modal"
+        contentLabel="Trailer Modal"
       >
     <YouTube videoId={trailerKey} opts={opts}  />
       </Modal>
