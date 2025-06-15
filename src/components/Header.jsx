@@ -4,7 +4,6 @@ import { useState } from 'react';
 const Header = ({search}) => {
    const  [textInput, setTextInput]= useState('');
   return (
-<<<<<<< HEAD
     <div className="p-4 bg-black flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
       <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4 w-full md:w-auto justify-between">
         <div className='flex items-center flex-row'>
