@@ -1,3 +1,4 @@
+Link truy cập: https://thichxemphim.vercel.app/
 # React + Vite
 
 <strong>Laptop/Desktop</strong>
